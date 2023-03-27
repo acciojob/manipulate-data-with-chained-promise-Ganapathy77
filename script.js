@@ -10,23 +10,24 @@ function manipulate(arr) {
     }).then((data) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                output.innerText = data.filter((element) => { return element % 2 != 0 })
-                resolve(data)
+                let evenArr = data.filter((element) => { return element % 2 == 0 })
+                output.innerHTML = `${evenArr} <br>`
+                resolve(evenArr)
             },1000)
         })
     }).then((data)=>{
         return new Promise((resolve, reject)=>{
             setTimeout(() => {
-                let evenArr = data.filter((element) => {return element %2 == 0})
-                // evenArr = evenArr.map( element => element*2)
-                resolve(evenArr)
+                // let evenArr = data.filter((element) => {return element %2 == 0})
+                let res = data.map( element => element*2)
+                resolve(res)
             },2000)
         })
     })
 }
 
 manipulate(arr).then((data)=>{
-    output.innerText = data;
+    output.innerHTML += data;
 }).catch((err)=>{
     console.log('Error ...')
 })
