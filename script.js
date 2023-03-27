@@ -28,6 +28,7 @@ function manipulate(arr) {
 
 manipulate(arr).then((data)=>{
     output.innerHTML += data;
+    console.log(data)
 }).catch((err)=>{
     console.log('Error ...')
 })
